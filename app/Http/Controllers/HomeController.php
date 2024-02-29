@@ -25,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $banner = DB::table('banners')->latest()->first();
-        return view('home', compact('banner'));
+        $social_links = DB::table('social_links')->latest()->first();
+        return view('home', compact('banner','social_links'));
     }
 }

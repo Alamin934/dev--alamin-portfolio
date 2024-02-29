@@ -8,7 +8,7 @@
         <h4 class="py-3 mb-4">Social Icons</h4>
 
         <div class="card">
-            <div class="card-body">
+            <div class="card-body social-form">
                 <form method="POST" id="socialLinkSubmit">
                     @csrf
                     <div class="mb-3">
@@ -17,35 +17,41 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="">Facebook</label>
-                                    <input type="text" name="facebook" class="form-control"
-                                        placeholder="https://facebook.com">
+                                    <input type="text" value="{{$social_links->facebook}}" name="facebook"
+                                        class="form-control" placeholder="https://facebook.com">
+                                    <small class="text-primary">Write without https://</small>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="">Twitter</label>
-                                    <input type="text" name="twitter" class="form-control"
-                                        placeholder="https://twitter.com">
+                                    <input type="text" value="{{$social_links->twitter}}" name="twitter"
+                                        class="form-control" placeholder="https://twitter.com">
+                                    <small class="text-primary">Write without https://</small>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="">Instagram</label>
-                                    <input type="text" name="instagram" class="form-control"
-                                        placeholder="https://instagram.com">
+                                    <input type="text" value="{{$social_links->instagram}}" name="instagram"
+                                        class="form-control" placeholder="https://instagram.com">
+                                    <small class="text-primary">Write without https://</small>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-md-0 mt-3">
                                 <div class="mb-3">
                                     <label class="form-label" for="">Linkedin</label>
-                                    <input type="text" name="linkedin" class="form-control"
-                                        placeholder="https://linkedin.com">
+                                    <input type="text" value="{{$social_links->linkedin}}" name="linkedin"
+                                        class="form-control" placeholder="https://linkedin.com">
+                                    <small class="text-primary">Write without https://</small>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="">Skype</label>
-                                    <input type="text" name="skype" class="form-control"
-                                        placeholder="https://skype.com">
+                                    <label class="form-label" for="">Google Plus</label>
+                                    <input type="text" value="{{$social_links->google_plus}}" name="google_plus"
+                                        class="form-control" placeholder="https://googleplus.com">
+                                    <small class="text-primary">Write without https://</small>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="">Youtube</label>
-                                    <input type="text" name="youtube" class="form-control"
-                                        placeholder="https://youtube.com">
+                                    <input type="text" value="{{$social_links->youtube}}" name="youtube"
+                                        class="form-control" placeholder="https://youtube.com">
+                                    <small class="text-primary">Write without https://</small>
                                 </div>
                             </div>
                         </div>
@@ -73,17 +79,9 @@
                 contentType: false,
                 success: function (response) {
                     if(response.status == 'success'){
-                        $('.error_msg').html('');
-                        //$('.banner-form').load(location.href+ ' form#bannerSubmit');
-                        toastr.success('Banner Added Successfully');
+                        $('.social-form').load(location.href+ ' form#socialLinkSubmit');
+                        toastr.success('Social Links Added Successfully');
                     }
-                },error: function(err){
-                    let error = err.responseJSON;
-                    toastr.error('Banner not added. may be some fileds are required.');
-                    $('.error_msg').html('');
-                    $.each(error.errors, function (index, value) { 
-                        $('.error_msg').append(`<li class='text-danger'>${value}</li>`);
-                    });
                 }
             });
         });

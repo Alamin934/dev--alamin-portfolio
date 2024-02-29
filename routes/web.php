@@ -13,8 +13,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('backend/dashboard/', [DashboardController::class, 'index'])->name('backend.dashboard')->middleware('auth');
 
 Route::prefix('backend/dashboard/')->name('backend.dashboard.')->middleware('auth')->group(function () {
+    // Banner Route
     Route::resource('banner', BannerController::class);
+
     // Social Icons Route
     Route::get('social-links', [DashboardController::class, 'socialLinkIndex'])->name('socialLink.index');
     Route::post('social-links', [DashboardController::class, 'socialLinkStore'])->name('socialLink.store');
+
+    // About Route
 });
