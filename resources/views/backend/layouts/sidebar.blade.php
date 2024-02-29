@@ -34,11 +34,19 @@
             </a>
         </li>
 
+        {{-- About Section --}}
+        <li class="menu-item {{request()->routeIs('backend.dashboard.about.index') ? 'active' : ''}}">
+            <a href="{{route('backend.dashboard.about.index')}}" class="menu-link">
+                <i class='menu-icon tf-icons bx bxs-user-rectangle'></i>
+                <div data-i18n="About">About</div>
+            </a>
+        </li>
+
         {{-- Social Icons --}}
         <li class="menu-item {{request()->routeIs('backend.dashboard.socialLink.index') ? 'active' : ''}}">
             <a href="{{route('backend.dashboard.socialLink.index')}}" class="menu-link">
-                <i class='menu-icon tf-icons bx bx-image'></i>
-                <div data-i18n="Social Icon">Social Icon</div>
+                <i class='menu-icon tf-icons bx bx-link'></i>
+                <div data-i18n="Social Links">Social Links</div>
             </a>
         </li>
 

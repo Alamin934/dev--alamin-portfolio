@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BackEnd\AboutController;
 use App\Http\Controllers\BackEnd\BannerController;
 use App\Http\Controllers\BackEnd\DashboardController;
 
@@ -21,4 +22,5 @@ Route::prefix('backend/dashboard/')->name('backend.dashboard.')->middleware('aut
     Route::post('social-links', [DashboardController::class, 'socialLinkStore'])->name('socialLink.store');
 
     // About Route
+    Route::resource('about', AboutController::class);
 });

@@ -16,7 +16,7 @@ class BannerController extends Controller
     public function index()
     {
         $banner = DB::table('banners')->latest()->first();
-        return view('backend.banner', compact('banner'));
+        return view('backend.banner-form', compact('banner'));
     }
 
     /**
@@ -53,20 +53,4 @@ class BannerController extends Controller
         return response()->json(['status'=>'success']);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
