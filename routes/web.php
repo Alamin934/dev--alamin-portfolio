@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BackEnd\AboutController;
+use App\Http\Controllers\BackEnd\SkillController;
 use App\Http\Controllers\BackEnd\BannerController;
 use App\Http\Controllers\BackEnd\DashboardController;
 
@@ -23,4 +24,6 @@ Route::prefix('backend/dashboard/')->name('backend.dashboard.')->middleware('aut
 
     // About Route
     Route::resource('about', AboutController::class);
+    // Skills Route
+    Route::resource('skill', SkillController::class);
 });

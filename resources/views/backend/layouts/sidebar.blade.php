@@ -42,6 +42,14 @@
             </a>
         </li>
 
+        {{-- Skills Section --}}
+        <li class="menu-item {{request()->routeIs('backend.dashboard.skill.index') ? 'active' : ''}}">
+            <a href="{{route('backend.dashboard.skill.index')}}" class="menu-link">
+                <i class='menu-icon tf-icons bx bxs-user-rectangle'></i>
+                <div data-i18n="Skills">Skills</div>
+            </a>
+        </li>
+
         {{-- Social Icons --}}
         <li class="menu-item {{request()->routeIs('backend.dashboard.socialLink.index') ? 'active' : ''}}">
             <a href="{{route('backend.dashboard.socialLink.index')}}" class="menu-link">

@@ -88,22 +88,25 @@ var editor = new FroalaEditor('#editor-textarea', {
 
 
 // Store and Update with Ajax Custom Method
-function ajaxStoreAndUpdate(method, url, data, modalId, toastrMsg) {
+function ajaxStoreAndUpdate(method, url, data, formParentClass, formId, toastrMsg) {
     $.ajax({
         type: method,
         url: url,
         data: data,
+        processData: false,
+        contentType: false,
         success: function (response) {
             if (response.status == 'success') {
-                $('.error-msg').hide();
-                $(modalId).modal('hide');
-                $('.table-responsive').load(location.href + ' .table');
+                $('.error_msg').html('');
+                $(formParentClass).load(location.href + ' ' + formId);
                 toastr.success(toastrMsg);
             }
         }, error: function (err) {
             let error = err.responseJSON;
+            toastr.error('May be some fileds are required.');
+            $('.error_msg').html('');
             $.each(error.errors, function (index, value) {
-                $('.error-msg').append(`<span class="text-danger">${value}</span><br>`);
+                $('.error_msg').append(`<li class='text-danger'>${value}</li>`);
             });
         }
     });
