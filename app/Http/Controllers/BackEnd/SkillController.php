@@ -25,7 +25,7 @@ class SkillController extends Controller
         ]);
 
         DB::table('skills')->updateOrInsert(
-            ['name' => $request->name],
+            ['id' => $request->id],
             [
                 'name'  => $request->name,
                 'percentage'  => $request->percentage,
@@ -35,5 +35,15 @@ class SkillController extends Controller
         );
 
         return response()->json(['status'=>'success']);
+    }
+
+    public function edit(string $id){
+        $skill = DB::table('skills')->whereId($id)->first();
+        return response()->json(['status'=>'success', 'data'=>$skill]);
+    }
+
+    public function destroy(string $id){
+        $skill = DB::table('skills')->whereId($id)->delete();
+        return redirect()->back()->with(['message'=>'Skill Deleted successfully', 'alert-type'=>'success']);
     }
 }
