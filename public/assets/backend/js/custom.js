@@ -74,7 +74,7 @@ function dependedSelect(onChangeSelect, url, displaySelect, columnClass) {
 }
 
 
-$('[name=tags],[name=unit]').tagify({
+$('[name=banner_subTitle]').tagify({
     duplicates: false,
     maxItems: 5,
 });
