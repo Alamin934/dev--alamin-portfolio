@@ -12,8 +12,8 @@ class AboutController extends Controller
 {
     public function index()
     {
-        // $about = DB::table('abouts')->latest()->first();
-        return view('backend.about-form');
+        $about = DB::table('abouts')->latest()->first();
+        return view('backend.about-form', compact('about'));
     }
 
     /**

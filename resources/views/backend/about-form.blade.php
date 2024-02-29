@@ -17,13 +17,13 @@
                         <label class="form-label" for="section_title">Section Title <span
                                 class="text-danger">*</span></label>
                         <input type="text" class="form-control form-control-lg" id="section_title" name="section_title"
-                            placeholder="About" value="" />
+                            placeholder="About" value="{{$about->section_title}}" />
                     </div>
                     {{-- About Description --}}
                     <div class="mb-3">
                         <label class="form-label" for="section_desc">Section Description</label>
                         <textarea rows="3" class="form-control form-control-lg" id="section_desc" name="section_desc"
-                            placeholder="This description is for under the title"></textarea>
+                            placeholder="This description is for under the title">{{$about->section_desc}}</textarea>
                     </div>
                     <div class="row mb-4">
                         {{-- Person Photo --}}
@@ -38,7 +38,7 @@
                         {{-- User Current Photo --}}
                         <div class="col-md-2">
                             <span class="d-block">Current Photo</span>
-                            {{-- <img class="w-25" src="" alt=""> --}}
+                            <img class="w-50" src="{{asset('storage/uploads/'.$about->user_photo)}}" alt="">
                         </div>
                         {{-- User Postion & Summery --}}
                         <div class="col-md-6 mb-3">
@@ -46,13 +46,13 @@
                                 <label class="form-label" for="position">Position <span
                                         class="text-danger">*</span></label>
                                 <input type="text" class="form-control form-control-lg" id="position" name="position"
-                                    placeholder="UI/UX Designer & Web Developer." value="" />
+                                    placeholder="UI/UX Designer & Web Developer." value="{{$about->position}}" />
                             </div>
                             <div>
                                 <label class="form-label" for="summery">Summery <span
                                         class="text-danger">*</span></label>
-                                <textarea class="form-control form-control-lg" id="summery" name="summery"
-                                    placeholder="Write something about your self"></textarea>
+                                <textarea id="editor-textarea" class="form-control form-control-lg" name="summery"
+                                    placeholder="Write something about your self">{!!$about->summery!!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -64,25 +64,25 @@
                                 {{-- Date of Birth --}}
                                 <div class="mb-3">
                                     <label class="form-label" for="">Birthday <span class="text-danger">*</span></label>
-                                    <input type="date" name="dob" class="form-control" />
+                                    <input type="date" value="{{$about->dob}}" name="dob" class="form-control" />
                                 </div>
                                 {{-- Website --}}
                                 <div class="mb-3">
                                     <label class="form-label" for="">Webiste <span class="text-danger">*</span></label>
                                     <input type="text" name="website" class="form-control"
-                                        placeholder="Enter your website url">
+                                        placeholder="Enter your website url" value="{{$about->website}}">
                                 </div>
                                 {{-- Phone --}}
                                 <div class="mb-3">
                                     <label class="form-label" for="">Phone <span class="text-danger">*</span></label>
                                     <input type="text" name="phone" class="form-control"
-                                        placeholder="Enter your phone number">
+                                        placeholder="Enter your phone number" value="{{$about->phone}}">
                                 </div>
                                 {{-- City --}}
                                 <div class="mb-3">
                                     <label class="form-label" for="">City <span class="text-danger">*</span></label>
                                     <input type="text" name="city" class="form-control"
-                                        placeholder="Enter your city, state, country">
+                                        placeholder="Enter your city, state, country" value="{{$about->city}}">
                                 </div>
                             </div>
                             <div class="col-md-6 mt-md-0 mt-3">
@@ -90,19 +90,19 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="">Age <span class="text-danger">*</span></label>
                                     <input type="number" maxlength="2" name="age" class="form-control"
-                                        placeholder="Enter your Age">
+                                        placeholder="Enter your Age" value="{{$about->age}}">
                                 </div>
                                 {{-- Degree/Education --}}
                                 <div class="mb-3">
                                     <label class="form-label" for="">Degree <span class="text-danger">*</span></label>
                                     <input type="text" name="degree" class="form-control"
-                                        placeholder="Enter your education status">
+                                        placeholder="Enter your education status" value="{{$about->degree}}">
                                 </div>
                                 {{-- Email --}}
                                 <div class="mb-3">
                                     <label class="form-label" for="">Email <span class="text-danger">*</span></label>
-                                    <input type="email" name="email" class="form-control"
-                                        placeholder="Enter your email">
+                                    <input type="email" name="email" class="form-control" placeholder="Enter your email"
+                                        value="{{$about->email}}">
                                 </div>
                                 {{-- Freelancing --}}
                                 <div class="mb-3">
@@ -110,8 +110,10 @@
                                             class="text-danger">*</span></label>
                                     <select name="freelance" class="form-select">
                                         <option @disabled(true) @selected(true)>Select</option>
-                                        <option value="1">Available</option>
-                                        <option value="0">Not Available</option>
+                                        <option {{$about->freelance=='1' ? 'selected' : ''}} value="1">Available
+                                        </option>
+                                        <option {{$about->freelance=='0' ? 'selected' : ''}} value="0">Not Available
+                                        </option>
                                     </select>
                                 </div>
                             </div>
