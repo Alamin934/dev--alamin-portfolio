@@ -15,7 +15,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        return view('backend.banner');
+        $banner = DB::table('banners')->latest()->first();
+        return view('backend.banner', compact('banner'));
     }
 
     /**
@@ -28,7 +29,7 @@ class BannerController extends Controller
             'banner_subTitle'  => 'required|max:255',
             'banner_image'  => ['required','image','mimes:png,jpg,webp', File::image()
             ->max('1mb')
-            ->dimensions(Rule::dimensions()->minWidth(1200)->minHeight(700)),]
+            ->dimensions(Rule::dimensions()->minWidth(1300)->minHeight(700)),]
         ]);
 
         if($request->file('banner_image')){

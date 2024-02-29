@@ -1,12 +1,16 @@
-<div id="hero" class="hero route bg-image" style="background-image: url(assets/frontend/img/hero-bg1.jpg)">
+<div id="hero" class="hero route bg-image"
+    style="background-image: url({{asset('storage/uploads/'.$banner->banner_image)}})">
     <div class="overlay-itro"></div>
     <div class="hero-content display-table">
         <div class="table-cell">
             <div class="container">
-                <!--<p class="display-6 color-d">Hello, world!</p>-->
-                <h1 class="hero-title mb-4">I am Morgan Freeman</h1>
+                <h1 class="hero-title mb-4">{{$banner->banner_title}}</h1>
+                @php
+                $subTitles = json_decode($banner->banner_subTitle);
+                @endphp
                 <p class="hero-subtitle"><span class="typed"
-                        data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+                        data-typed-items="@foreach ($subTitles as $subTitle){{$subTitle->value.','}} @endforeach"></span>
+                </p>
                 <div class="social-links">
                     <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                     <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>

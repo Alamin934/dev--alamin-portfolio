@@ -14,4 +14,7 @@ Route::get('backend/dashboard/', [DashboardController::class, 'index'])->name('b
 
 Route::prefix('backend/dashboard/')->name('backend.dashboard.')->middleware('auth')->group(function () {
     Route::resource('banner', BannerController::class);
+    // Social Icons Route
+    Route::get('social-links', [DashboardController::class, 'socialLinkIndex'])->name('socialLink.index');
+    Route::post('social-links', [DashboardController::class, 'socialLinkStore'])->name('socialLink.store');
 });

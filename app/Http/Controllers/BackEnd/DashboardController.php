@@ -10,4 +10,12 @@ class DashboardController extends Controller
     public function index(){
         return view('backend.dashboard');
     }
+
+    public function socialLinkIndex(){
+        return view('backend.social-links');
+    }
+
+    public function socialLinkStore(Request $request){
+        
+    }
 }

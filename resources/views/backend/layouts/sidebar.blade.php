@@ -24,13 +24,21 @@
         </li>
 
 
-        <!-- Components -->
+        <!-- Home -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Home</span></li>
         <!-- User interface -->
         <li class="menu-item {{request()->routeIs('backend.dashboard.banner.index') ? 'active' : ''}}">
             <a href="{{route('backend.dashboard.banner.index')}}" class="menu-link">
                 <i class='menu-icon tf-icons bx bx-image'></i>
                 <div data-i18n="Banner">Banner</div>
+            </a>
+        </li>
+
+        {{-- Social Icons --}}
+        <li class="menu-item {{request()->routeIs('backend.dashboard.socialLink.index') ? 'active' : ''}}">
+            <a href="{{route('backend.dashboard.socialLink.index')}}" class="menu-link">
+                <i class='menu-icon tf-icons bx bx-image'></i>
+                <div data-i18n="Social Icon">Social Icon</div>
             </a>
         </li>
 
