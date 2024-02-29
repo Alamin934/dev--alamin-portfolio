@@ -32,11 +32,12 @@
                                     class="text-danger">*</span></label>
                             <input type="file" id="user_photo" name="user_photo"
                                 class="form-control form-control-lg dropify" data-height="250" />
-                            <small class="text-primary">Photo dimensions should be 400X400 to 600X600</small>
+                            <small class="text-primary">Photo dimensions should be 600X600 to 800X800</small>
 
                         </div>
                         {{-- User Current Photo --}}
                         <div class="col-md-2">
+                            <input type="hidden" value="{{$about->user_photo}}" name="old_user_photo">
                             <span class="d-block">Current Photo</span>
                             <img class="w-50" src="{{asset('storage/uploads/'.$about->user_photo)}}" alt="">
                         </div>
