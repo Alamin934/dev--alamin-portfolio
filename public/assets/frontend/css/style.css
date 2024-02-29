@@ -233,14 +233,15 @@ h6 {
   top: 10px;
   z-index: 9998;
   border: 0;
-  background: none;
+  background: #0563bb;
   font-size: 28px;
   transition: all 0.4s;
   outline: none !important;
   line-height: 0;
   cursor: pointer;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   padding: 5px;
+  color: #fff;
 }
 
 .mobile-nav-toggle i {
